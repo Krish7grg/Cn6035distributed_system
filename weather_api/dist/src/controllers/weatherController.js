@@ -1,4 +1,4 @@
-import { generateDublinWeatherData, generateLondonWeatherData, generateDubaiWeatherData, generateParisWeatherData, } from "../services/weatherService.js";
+import { generateDublinWeatherData, generateLondonWeatherData, generateDubaiWeatherData, generateParisWeatherData, generateLondonThreeDayForecast, } from "../services/weatherService.js";
 import { validationResult } from "express-validator";
 /**
  * Gets the weather data for a city
@@ -44,6 +44,15 @@ export const getWeatherData = async (req, res) => {
     catch (error) {
         // If there is an error, we will log it and send a 500 status code
         res.status(500).send("Error in fetching weather data");
+    }
+};
+export const getLondonForecast = async (req, res) => {
+    try {
+        const forecast = generateLondonThreeDayForecast();
+        res.status(200).json(forecast);
+    }
+    catch (error) {
+        res.status(500).send("Error fetching forecast");
     }
 };
 //# sourceMappingURL=weatherController.js.map

@@ -52,3 +52,12 @@ export const generateParisWeatherData = (): WeatherData => {
   return generatedWeatherData;
 };
 
+export const generateLondonThreeDayForecast = (): ThreeDayForecast => {
+  const generatedWeatherData: ThreeDayForecast = {
+   dayOne: 14,
+   dayTwo: 23,
+   dayThree: 17
+  };
+  return generatedWeatherData;
+
+};

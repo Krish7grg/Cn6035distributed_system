@@ -43,4 +43,12 @@ export const generateParisWeatherData = () => {
     // Return weather data
     return generatedWeatherData;
 };
+export const generateLondonThreeDayForecast = () => {
+    const generatedWeatherData = {
+        dayOne: 14,
+        dayTwo: 23,
+        dayThree: 17
+    };
+    return generatedWeatherData;
+};
 //# sourceMappingURL=weatherService.js.map

@@ -4,6 +4,7 @@ import {
   generateLondonWeatherData,
   generateDubaiWeatherData,
   generateParisWeatherData,
+  generateLondonThreeDayForecast, 
 } from "../services/weatherService.js";
 import { validationResult } from "express-validator";
 
@@ -51,5 +52,13 @@ export const getWeatherData = async (req: Request, res: Response) => {
   } catch (error) {
     // If there is an error, we will log it and send a 500 status code
     res.status(500).send("Error in fetching weather data");
+  }
+};
+export const getLondonForecast = async (req: Request, res: Response) => {
+  try {
+    const forecast = generateLondonThreeDayForecast();
+    res.status(200).json(forecast);
+  } catch (error) {
+    res.status(500).send("Error fetching forecast");
   }
 };
